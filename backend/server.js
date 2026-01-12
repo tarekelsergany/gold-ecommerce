@@ -6,12 +6,13 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Database configuration - WE'LL UPDATE THIS LATER
+// Database configuration - UPDATED FOR RAILWAY
 let dbConfig = {
   host: process.env.DB_HOST || 'localhost',
   user: process.env.DB_USER || 'root',
   password: process.env.DB_PASSWORD || '',
-  database: process.env.DB_NAME || 'gold_db'
+  database: process.env.DB_NAME || 'gold_db',
+  port: process.env.DB_PORT ? parseInt(process.env.DB_PORT) : 3306 // ADD THIS LINE
 };
 
 let db;
